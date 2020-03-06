@@ -3,6 +3,8 @@
 > [个人博客](https://yanzhenyidai.com)
 
 
-> [GitHub](https://yanzhenyidai.com)
+> [GitHub](https://github.com/yanzhenyidai)
+
+> [MAIL](mailto:frank-tan@outlook.com)
 
 

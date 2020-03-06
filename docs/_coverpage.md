@@ -1,9 +1,9 @@
 # 严阵以待
 
 
-> 我的程序员之路
+> 程序员踩坑记录
 
 
-[Github](https://yanzhenyidai.com)
+[Github](https://github.com/yanzhenyidai)
 [滚动鼠标](#introduction)
 
