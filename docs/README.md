@@ -1,10 +1,14 @@
-# 最迷人的二营长
+# Contact
 
-> [个人博客](https://yanzhenyidai.com)
+<div align = "center">
 
+> [Blog](https://yanzhenyidai.com)
 
 > [GitHub](https://github.com/yanzhenyidai)
 
-> [MAIL](mailto:frank-tan@outlook.com)
+> [Twitter](https://twitter.com/Frank57368000)
 
+> [frank-tan@outlook.com](mailto:frank-tan@outlook.com)
+
+</div>
 
