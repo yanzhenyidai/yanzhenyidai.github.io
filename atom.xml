@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>严阵以待</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yanzhenyidai.com/"/>
+  <updated>2020-01-16T03:46:45.000Z</updated>
+  <id>http://yanzhenyidai.com/</id>
+  
+  <author>
+    <name>Frank-Tan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot，SpringCloud版本整理</title>
+    <link href="http://yanzhenyidai.com/2020/01/16/SpringBoot%EF%BC%8CSpringCloud%E5%90%84%E7%89%88%E6%9C%AC%E6%AF%94%E5%AF%B9/"/>
+    <id>http://yanzhenyidai.com/2020/01/16/SpringBoot，SpringCloud各版本比对/</id>
+    <published>2020-01-16T03:40:52.000Z</published>
+    <updated>2020-01-16T03:46:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>前段时间在搭SpringCloud框架，期间有过版本冲突问题发生，以下是整理的各兼容版本</p><table><thead><tr><th>SpringCloud</th><th align="center">SpringBoot</th></tr></thead><tbody><tr><td>Finchley.M2</td><td align="center">Spring Boot &gt;=2.0.0.M3 and &lt;2.0.0.M5</td></tr><tr><td>Finchley.M3</td><td align="center">Spring Boot &gt;=2.0.0.M5 and &lt;=2.0.0.M5</td></tr><tr><td>Finchley.M4</td><td align="center">Spring Boot &gt;=2.0.0.M6 and &lt;=2.0.0.M6</td></tr><tr><td>Finchley.M5</td><td align="center">Spring Boot &gt;=2.0.0.M7 and &lt;=2.0.0.M7</td></tr><tr><td>Finchley.M6</td><td align="center">Spring Boot &gt;=2.0.0.RC1 and &lt;=2.0.0.RC1</td></tr><tr><td>Finchley.M7</td><td align="center">Spring Boot &gt;=2.0.0.RC2 and &lt;=2.0.0.RC2</td></tr><tr><td>Finchley.M9</td><td align="center">Spring Boot &gt;=2.0.0.RELEASE and &lt;=2.0.0.RELEASE</td></tr><tr><td>Finchley.RC1</td><td align="center">Spring Boot &gt;=2.0.1.RELEASE and &lt;2.0.2.RELEASE</td></tr><tr><td>Finchley.RC2</td><td align="center">Spring Boot &gt;=2.0.2.RELEASE and &lt;2.0.3.RELEASE</td></tr><tr><td>Finchley.SR4</td><td align="center">Spring Boot &gt;=2.0.3.RELEASE and &lt;2.0.999.BUILD-SNAPSHOT</td></tr><tr><td>Finchley.BUILD-SNAPSHOT</td><td align="center">Spring Boot &gt;=2.0.999.BUILD-SNAPSHOT and &lt;2.1.0.M3</td></tr><tr><td>Greenwich.M1</td><td align="center">Spring Boot &gt;=2.1.0.M3 and &lt;2.1.0.RELEASE</td></tr><tr><td>Greenwich.SR4</td><td align="center">Spring Boot &gt;=2.1.0.RELEASE and &lt;2.1.12.BUILD-SNAPSHOT</td></tr><tr><td>Greenwich.BUILD-SNAPSHOT</td><td align="center">Spring Boot &gt;=2.1.12.BUILD-SNAPSHOT and &lt;2.2.0.M4</td></tr><tr><td>Hoxton.SR1</td><td align="center">Spring Boot &gt;=2.2.0.M4 and &lt;2.2.3.BUILD-SNAPSHOT</td></tr><tr><td>Hoxton.BUILD-SNAPSHOT</td><td align="center">Spring Boot &gt;=2.2.3.BUILD-SNAPSHOT</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;前段时间在搭SpringCloud框架，期间有过版本冲突问题发生，以下是整理的各兼容版本&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;SpringCloud&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;SpringBoot&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/the
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>记一次Zookeeper 生产问题</title>
+    <link href="http://yanzhenyidai.com/2019/09/10/Zookeeper-%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F/"/>
+    <id>http://yanzhenyidai.com/2019/09/10/Zookeeper-能做什么？/</id>
+    <published>2019-09-10T14:15:33.000Z</published>
+    <updated>2019-12-24T09:17:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>前段时间发现生产服务变得特别慢，结果发现是两台服务器其中一台服务一直提示Zookeeper连接超时，查了下Zookeeper服务，发现莫名其妙的停止了，于是开始排查问题。</p><h2 id="首先定位Zookeeper停止时间"><a href="#首先定位Zookeeper停止时间" class="headerlink" title="首先定位Zookeeper停止时间"></a>首先定位Zookeeper停止时间</h2><ul><li>查询Nginx日志，得到最终日志打印时间，可以得出最后一次服务执行时间</li><li>查看Zookeepe在这个时间段打印的日志，得到Zookeeper停止的原因</li><li>原因是之前其中有台服务器重启过了，导致共享文件目录失效，停止的这台服务器一直访问不到共享目录，导致Zookeeper和其他NFS服务失效</li></ul><p>结果把共享目录重新配置后，重启了Zookeeper服务，发现过了大约10分钟，又停止了。</p><h2 id="继续查看Zookeeper日志"><a href="#继续查看Zookeeper日志" class="headerlink" title="继续查看Zookeeper日志"></a>继续查看Zookeeper日志</h2><ul><li>查看Zookeeper节点的log日志，发现没有问题。</li><li>跟踪Zookeeper的占用内存，也没有发现问题。</li><li>尝试使用sudo 权限用户启动Zookeeper。</li></ul><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ul><li>对比了两台服务器的Zookeeper配置文件，感觉应该是配置文件配置错了，记录一下。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;前段时间发现生产服务变得特别慢，结果发现是两台服务器其中一台服务一直提示Zookeeper连接超时，查了下Zookeeper服务，发现莫名其妙的停止了，于是开始排查问题。&lt;/p&gt;
+&lt;h2 id=&quot;首先定位Zookeeper停止时间&quot;&gt;&lt;a href=&quot;#首先定位Zookee
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HashMap实现原理（JDK1.8）</title>
+    <link href="http://yanzhenyidai.com/2019/09/08/HashMap%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"/>
+    <id>http://yanzhenyidai.com/2019/09/08/HashMap实现原理/</id>
+    <published>2019-09-08T14:12:31.000Z</published>
+    <updated>2019-09-08T15:16:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果突然被同行问起HashMap的实现原理，你会不会和我一样词穷。</p><p>下面是看完HashMap源码的一些感受和心得。</p><p>HashMap是实现了Map接口，而HashMap底层实际为链表+数组，可以看到源码中的Node&lt;K,V&gt;[] table，Node则是Map中的Entry集合的实现。transient修饰则是不参与Java中的序列化。</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">HashMap源码部分</span><br><span class="line"></span><br><span class="line">public class HashMap&lt;K,V&gt; extends AbstractMap&lt;K,V&gt;</span><br><span class="line">    implements Map&lt;K,V&gt;, Cloneable, Serializable &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Basic hash bin node, used for most entries.  (See below for</span><br><span class="line">     * TreeNode subclass, and in LinkedHashMap for its Entry subclass.)</span><br><span class="line">     */</span><br><span class="line">    static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;</span><br><span class="line">        final int hash;</span><br><span class="line">        final K key;</span><br><span class="line">        V value;</span><br><span class="line">        Node&lt;K,V&gt; next;</span><br><span class="line"></span><br><span class="line">        Node(int hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">            this.hash = hash;</span><br><span class="line">            this.key = key;</span><br><span class="line">            this.value = value;</span><br><span class="line">            this.next = next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public final K getKey()        &#123; return key; &#125;</span><br><span class="line">        public final V getValue()      &#123; return value; &#125;</span><br><span class="line">        public final String toString() &#123; return key + &quot;=&quot; + value; &#125;</span><br><span class="line"></span><br><span class="line">        public final int hashCode() &#123;</span><br><span class="line">            return Objects.hashCode(key) ^ Objects.hashCode(value);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public final V setValue(V newValue) &#123;</span><br><span class="line">            V oldValue = value;</span><br><span class="line">            value = newValue;</span><br><span class="line">            return oldValue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public final boolean equals(Object o) &#123;</span><br><span class="line">            if (o == this)</span><br><span class="line">                return true;</span><br><span class="line">            if (o instanceof Map.Entry) &#123;</span><br><span class="line">                Map.Entry&lt;?,?&gt; e = (Map.Entry&lt;?,?&gt;)o;</span><br><span class="line">                if (Objects.equals(key, e.getKey()) &amp;&amp;</span><br><span class="line">                    Objects.equals(value, e.getValue()))</span><br><span class="line">                    return true;</span><br><span class="line">            &#125;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">     /**</span><br><span class="line">     * The table, initialized on first use, and resized as</span><br><span class="line">     * necessary. When allocated, length is always a power of two.</span><br><span class="line">     * (We also tolerate length zero in some operations to allow</span><br><span class="line">     * bootstrapping mechanics that are currently not needed.)</span><br><span class="line">     */</span><br><span class="line">    transient Node&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Holds cached entrySet(). Note that AbstractMap fields are used</span><br><span class="line">     * for keySet() and values().</span><br><span class="line">     */</span><br><span class="line">    transient Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>看到HashMap是继承了一个抽象的Map类，实现了Map接口，Cloneable接口和Jdk序列化接口。</p><ul><li><p>Cloneable接口<br>Cloneable接口其实只是一个空的接口，没有任何其他信息，通过实现了这个接口，程序就可以认为HashMap具备了clone，而实际其中的clone方法是存在了Object类中，而HashMap实现的clone方法，是因为继承了<br>AbstractMap。</p></li><li><p>说说AbstractMap</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">源码部分</span><br><span class="line">public abstract class AbstractMap&lt;K,V&gt; implements Map&lt;K,V&gt; &#123;</span><br><span class="line">/**</span><br><span class="line"> * Sole constructor.  (For invocation by subclass constructors, typically</span><br><span class="line"> * implicit.)</span><br><span class="line"> */</span><br><span class="line">protected AbstractMap() &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public abstract Set&lt;Entry&lt;K,V&gt;&gt; entrySet();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>首先看到AbstractMap，它也是实现了一个Map接口，但是是被声明成了抽象的类，这里就涉及到了抽象的概念，抽象类不能被实例化，但是他的子类被实例化后可以引用他的方法，继承了抽象类，一定需要实现抽象方法，普通方法可以不实现。可以看到该类中abstract只出现了一次，而且是修饰了Set接口。</p></li></ul><ul><li><p>Map接口<br>Map接口都知道是键值对，一个键对应一个值，看到Map接口注释时，做着进行了说明：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">An object that maps keys to values.  A map cannot contain duplicate keys;</span><br><span class="line">each key can map to at most one value.</span><br><span class="line"></span><br><span class="line">意思大概是，</span><br><span class="line">将键映射到值的对象。映射不能包含重复键；</span><br><span class="line">每个键最多只能映射到一个值。</span><br></pre></td></tr></table></figure></li></ul><p> HashMap在初始化，在源码中的构造方法中，有一个默认的initialCapacity，HashMap根据初始容量来进行链表的大小初始化；</p><p> 而且HashMap中没有出现synchronized来进行方法同步，所以HashMap和HashTable比起来运行速度更快。</p><p> 且HashMap键可以为null，是因为HashMap在put的时候做了判断<br> return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果突然被同行问起HashMap的实现原理，你会不会和我一样词穷。&lt;/p&gt;
+&lt;p&gt;下面是看完HashMap源码的一些感受和心得。&lt;/p&gt;
+&lt;p&gt;HashMap是实现了Map接口，而HashMap底层实际为链表+数组，可以看到源码中的Node&amp;lt;K,V&amp;gt;[] table，Node则是Map中的Entry集合的实现。transient修饰则是不参与Java中的序列化。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GitHub初体验</title>
+    <link href="http://yanzhenyidai.com/2019/09/01/GitHub%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
+    <id>http://yanzhenyidai.com/2019/09/01/GitHub初体验/</id>
+    <published>2019-09-01T05:36:29.000Z</published>
+    <updated>2019-09-01T05:46:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如下只是记录了使用Github的一些流程和语法：</p><ul><li>Github创建自己的仓库（如果自己有服务器可以搭建Gitlab）</li></ul><p><img src="/images/pasted-5.png" alt="upload successful"></p><a id="more"></a><p>如果是牛人，也可以在git客户端上创建项目，通过remote同步到指定的git仓库上。</p><ul><li><p>将Github上的代码Clone到本地<br>通过git客户端 git clone xxxx.git到本地。</p></li><li><p>本地进行开发，提交上传<br>本地创建项目后，如在git客户端内操作</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init                                           ## 初始化工程</span><br><span class="line">git add .                                        ## 将工程内的内容添加到提交内容中</span><br><span class="line">git commit -m &quot;注释&quot; ## 为本次提交增加注释</span><br><span class="line">git push -u origin master   ## 同步到git仓库，如是私人仓库，会提示需要输入用户名及密码</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如下只是记录了使用Github的一些流程和语法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Github创建自己的仓库（如果自己有服务器可以搭建Gitlab）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/images/pasted-5.png&quot; alt=&quot;upload successful&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MYSQL 性能调优的10个方法</title>
+    <link href="http://yanzhenyidai.com/2019/08/23/MySQL-%E5%B8%B8%E8%A7%81%E8%B0%83%E4%BC%98/"/>
+    <id>http://yanzhenyidai.com/2019/08/23/MySQL-常见调优/</id>
+    <published>2019-08-23T13:58:28.000Z</published>
+    <updated>2019-08-25T12:19:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如下内容记录于某外企DBA，2018-04-08。</p><p>MYSQL 应该是最流行了 WEB 后端数据库。WEB 开发语言近期发展非常快，PHP， Ruby, Python, Java 各有特点，尽管 NOSQL 近期越來越多的被提到，可是相信大部分架构师还是会选择 MYSQL 来做数据存储。<br>MYSQL 如此方便和稳定。以至于我们在开发 WEB 程序的时候非常少想到它。即使想到优化也是程序级别的，比方。不要写过于消耗资源的 SQL 语句。可是除此之外，在整个系统上仍然有非常多能够优化的地方。</p><h2 id="1-选择合适的存储引擎-InnoDB"><a href="#1-选择合适的存储引擎-InnoDB" class="headerlink" title="1. 选择合适的存储引擎: InnoDB"></a>1. 选择合适的存储引擎: InnoDB</h2><p>除非你的数据表使用来做仅仅读或者全文检索 (相信如今提到全文检索，没人会用 MYSQL 了)。你应该默认选择 InnoDB 。<br>你自己在測试的时候可能会发现 MyISAM 比 InnoDB 速度快。这是由于： MyISAM 仅仅缓存索引，而 InnoDB 缓存数据和索引，MyISAM 不支持事务。可是 假设你使用 innodb_flush_log_at_trx_commit = 2 能够获得接近的读取性能 (相差百倍) 。</p><h3 id="1-1-怎样将现有的-MyISAM-数据库转换为-InnoDB"><a href="#1-1-怎样将现有的-MyISAM-数据库转换为-InnoDB" class="headerlink" title="1.1 怎样将现有的 MyISAM 数据库转换为 InnoDB:"></a>1.1 怎样将现有的 MyISAM 数据库转换为 InnoDB:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u [USER_NAME] -p -e &quot;SHOW TABLES IN [DATABASE_NAME];&quot; | tail -n +2 | xargs -I &apos;&#123;&#125;&apos; echo &quot;ALTER TABLE &#123;&#125; ENGINE=InnoDB;&quot; &gt; alter_table.sql</span><br><span class="line">perl -p -i -e &apos;s/(search_[a-z_]+ ENGINE=)InnoDB//1MyISAM/g&apos; alter_table.sql</span><br><span class="line">mysql -u [USER_NAME] -p [DATABASE_NAME] &lt; alter_table.sql</span><br></pre></td></tr></table></figure><h3 id="1-2-为每一个表分别创建-InnoDB-FILE：innodb-file-per-table-1"><a href="#1-2-为每一个表分别创建-InnoDB-FILE：innodb-file-per-table-1" class="headerlink" title="1.2 为每一个表分别创建 InnoDB FILE：innodb_file_per_table=1"></a>1.2 为每一个表分别创建 InnoDB FILE：innodb_file_per_table=1</h3><p>这样能够保证 ibdata1 文件不会过大。失去控制。尤其是在运行 mysqlcheck -o –all-databases 的时候。</p><hr><a id="more"></a><h2 id="2-保证从内存中读取数据。讲数据保存在内存中"><a href="#2-保证从内存中读取数据。讲数据保存在内存中" class="headerlink" title="2. 保证从内存中读取数据。讲数据保存在内存中"></a>2. 保证从内存中读取数据。讲数据保存在内存中</h2><h3 id="2-1-足够大的-innodb-buffer-pool-size"><a href="#2-1-足够大的-innodb-buffer-pool-size" class="headerlink" title="2.1 足够大的 innodb_buffer_pool_size"></a>2.1 足够大的 innodb_buffer_pool_size</h3><p>推荐将数据全然保存在 innodb_buffer_pool_size ，即按存储量规划 innodb_buffer_pool_size 的容量。这样你能够全然从内存中读取数据。最大限度降低磁盘操作。</p><h4 id="2-1-1-怎样确定-innodb-buffer-pool-size-足够大。数据是从内存读取而不是硬盘？"><a href="#2-1-1-怎样确定-innodb-buffer-pool-size-足够大。数据是从内存读取而不是硬盘？" class="headerlink" title="2.1.1 怎样确定 innodb_buffer_pool_size 足够大。数据是从内存读取而不是硬盘？"></a>2.1.1 怎样确定 innodb_buffer_pool_size 足够大。数据是从内存读取而不是硬盘？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> 方法 1</span><br><span class="line">mysql&gt; SHOW GLOBAL STATUS LIKE &apos;innodb_buffer_pool_pages_%&apos;;</span><br><span class="line">+----------------------------------+--------+</span><br><span class="line">| Variable_name                    | Value  |</span><br><span class="line">+----------------------------------+--------+</span><br><span class="line">| Innodb_buffer_pool_pages_data    | 129037 |</span><br><span class="line">| Innodb_buffer_pool_pages_dirty   | 362    |</span><br><span class="line">| Innodb_buffer_pool_pages_flushed | 9998   |</span><br><span class="line">| Innodb_buffer_pool_pages_free    | 0      |  !!!!!!!!</span><br><span class="line">| Innodb_buffer_pool_pages_misc    | 2035   |</span><br><span class="line">| Innodb_buffer_pool_pages_total   | 131072 |</span><br><span class="line">+----------------------------------+--------+</span><br><span class="line">6 rows in set (0.00 sec)</span><br><span class="line">发现 Innodb_buffer_pool_pages_free 为 0，则说明 buffer pool 已经被用光，须要增大 innodb_buffer_pool_size</span><br><span class="line">InnoDB 的其它几个參数：</span><br><span class="line"></span><br><span class="line">innodb_additional_mem_pool_size = 1/200 of buffer_pool</span><br><span class="line">innodb_max_dirty_pages_pct 80%</span><br><span class="line"></span><br><span class="line">方法 2</span><br><span class="line">或者用iostat -d -x -k 1 命令，查看硬盘的操作。</span><br></pre></td></tr></table></figure><h4 id="2-1-2-server上是否有足够内存用来规划"><a href="#2-1-2-server上是否有足够内存用来规划" class="headerlink" title="2.1.2 server上是否有足够内存用来规划"></a>2.1.2 server上是否有足够内存用来规划</h4><p>运行 echo 1 &gt; /proc/sys/vm/drop_caches 清除操作系统的文件缓存。能够看到真正的内存使用量。</p><h3 id="2-2-数据预热"><a href="#2-2-数据预热" class="headerlink" title="2.2 数据预热"></a>2.2 数据预热</h3><p>默认情况，仅仅有某条数据被读取一次，才会缓存在 innodb_buffer_pool。所以，数据库刚刚启动，须要进行数据预热，将磁盘上的全部数据缓存到内存中。<br>数据预热能够提高读取速度。<br>对于 InnoDB 数据库，能够用下面方法，进行数据预热:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">1. 将下面脚本保存为 MakeSelectQueriesToLoad.sql</span><br><span class="line">SELECT DISTINCT</span><br><span class="line">CONCAT(&apos;SELECT &apos;,ndxcollist,&apos; FROM &apos;,db,&apos;.&apos;,tb,</span><br><span class="line">&apos; ORDER BY &apos;,ndxcollist,&apos;;&apos;) SelectQueryToLoadCache</span><br><span class="line">FROM</span><br><span class="line">(</span><br><span class="line">SELECT</span><br><span class="line">engine,table_schema db,table_name tb,</span><br><span class="line">index_name,GROUP_CONCAT(column_name ORDER BY seq_in_index) ndxcollist</span><br><span class="line">FROM</span><br><span class="line">(</span><br><span class="line">SELECT</span><br><span class="line">B.engine,A.table_schema,A.table_name,</span><br><span class="line">A.index_name,A.column_name,A.seq_in_index</span><br><span class="line">FROM</span><br><span class="line">information_schema.statistics A INNER JOIN</span><br><span class="line">(</span><br><span class="line">SELECT engine,table_schema,table_name</span><br><span class="line">FROM information_schema.tables WHERE</span><br><span class="line">engine=&apos;InnoDB&apos;</span><br><span class="line">) B USING (table_schema,table_name)</span><br><span class="line">WHERE B.table_schema NOT IN (&apos;information_schema&apos;,&apos;mysql&apos;)</span><br><span class="line">ORDER BY table_schema,table_name,index_name,seq_in_index</span><br><span class="line">) A</span><br><span class="line">GROUP BY table_schema,table_name,index_name</span><br><span class="line">) AA</span><br><span class="line">ORDER BY db,tb;</span><br><span class="line"></span><br><span class="line">2. 运行</span><br><span class="line">mysql -uroot -AN &lt; /root/MakeSelectQueriesToLoad.sql &gt; /root/SelectQueriesToLoad.sql</span><br><span class="line"></span><br><span class="line">3. 每次重新启动数据库，或者整库备份前须要预热的时候运行：</span><br><span class="line">mysql -uroot &lt; /root/SelectQueriesToLoad.sql &gt; /dev/null</span><br></pre></td></tr></table></figure><h3 id="2-3-不要让数据存到-SWAP-中"><a href="#2-3-不要让数据存到-SWAP-中" class="headerlink" title="2.3 不要让数据存到 SWAP 中"></a>2.3 不要让数据存到 SWAP 中</h3><p>假设是专用 MYSQL server。能够禁用 SWAP，假设是共享server，确定 innodb_buffer_pool_size 足够大。或者使用固定的内存空间做缓存，使用 memlock 指令。</p><hr><h2 id="3-定期优化重建数据库"><a href="#3-定期优化重建数据库" class="headerlink" title="3. 定期优化重建数据库"></a>3. 定期优化重建数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysqlcheck -o –all-databases 会让 ibdata1 不断增大。真正的优化仅仅有重建数据表结构：</span><br><span class="line">CREATE TABLE mydb.mytablenew LIKE mydb.mytable;</span><br><span class="line">INSERT INTO mydb.mytablenew SELECT * FROM mydb.mytable;</span><br><span class="line">ALTER TABLE mydb.mytable RENAME mydb.mytablezap;</span><br><span class="line">ALTER TABLE mydb.mytablenew RENAME mydb.mytable;</span><br><span class="line">DROP TABLE mydb.mytablezap;</span><br></pre></td></tr></table></figure><hr><h2 id="4-降低磁盘写入操作"><a href="#4-降低磁盘写入操作" class="headerlink" title="4. 降低磁盘写入操作"></a>4. 降低磁盘写入操作</h2><h3 id="4-1-使用足够大的写入缓存-innodb-log-file-size"><a href="#4-1-使用足够大的写入缓存-innodb-log-file-size" class="headerlink" title="4.1 使用足够大的写入缓存 innodb_log_file_size"></a>4.1 使用足够大的写入缓存 innodb_log_file_size</h3><p>可是须要注意假设用 1G 的 innodb_log_file_size 。假如server当机。须要 10 分钟来恢复。<br>推荐 innodb_log_file_size 设置为 0.25 * innodb_buffer_pool_size</p><h3 id="4-2-innodb-flush-log-at-trx-commit"><a href="#4-2-innodb-flush-log-at-trx-commit" class="headerlink" title="4.2 innodb_flush_log_at_trx_commit"></a>4.2 innodb_flush_log_at_trx_commit</h3><p>这个选项和写磁盘操作密切相关：<br>innodb_flush_log_at_trx_commit = 1 则每次改动写入磁盘<br>innodb_flush_log_at_trx_commit = 0/2 每秒写入磁盘<br>假设你的应用不涉及非常高的安全性 (金融系统)，或者基础架构足够安全，或者 事务都非常小，都能够用 0 或者 2 来减少磁盘操作。</p><h3 id="4-3-避免双写入缓冲"><a href="#4-3-避免双写入缓冲" class="headerlink" title="4.3 避免双写入缓冲"></a>4.3 避免双写入缓冲</h3><p>innodb_flush_method=O_DIRECT</p><hr><h2 id="5-提高磁盘读写速度"><a href="#5-提高磁盘读写速度" class="headerlink" title="5. 提高磁盘读写速度"></a>5. 提高磁盘读写速度</h2><p>RAID0 尤其是在使用 EC2 这样的虚拟磁盘 (EBS) 的时候，使用软 RAID0 很重要。</p><hr><h2 id="6-充分使用索引"><a href="#6-充分使用索引" class="headerlink" title="6. 充分使用索引"></a>6. 充分使用索引</h2><h3 id="6-1-查看现有表结构和索引"><a href="#6-1-查看现有表结构和索引" class="headerlink" title="6.1 查看现有表结构和索引"></a>6.1 查看现有表结构和索引</h3><p>SHOW CREATE TABLE db1.tb1/G</p><h3 id="6-2-加入必要的索引"><a href="#6-2-加入必要的索引" class="headerlink" title="6.2 加入必要的索引"></a>6.2 加入必要的索引</h3><p>索引是提高查询速度的唯一方法。比方搜索引擎用的倒排索引是一样的原理。<br>索引的加入须要依据查询来确定。比方通过慢查询日志或者查询日志,或者通过 EXPLAIN 命令分析查询。<br>ADD UNIQUE INDEX<br>ADD INDEX</p><h4 id="6-2-1-比方，优化用户验证表："><a href="#6-2-1-比方，优化用户验证表：" class="headerlink" title="6.2.1 比方，优化用户验证表："></a>6.2.1 比方，优化用户验证表：</h4><p>加入索引<br>ALTER TABLE users ADD UNIQUE INDEX username_ndx (username);<br>ALTER TABLE users ADD UNIQUE INDEX username_password_ndx (username,password);<br>每次重新启动server进行数据预热<br>echo “select username,password from users;” &gt; /var/lib/mysql/upcache.sql<br>加入启动脚本到 my.cnf<br>[mysqld]<br>init-file=/var/lib/mysql/upcache.sql</p><h4 id="6-2-2-使用自己主动加索引的框架或者自己主动拆分表结构的框架"><a href="#6-2-2-使用自己主动加索引的框架或者自己主动拆分表结构的框架" class="headerlink" title="6.2.2 使用自己主动加索引的框架或者自己主动拆分表结构的框架"></a>6.2.2 使用自己主动加索引的框架或者自己主动拆分表结构的框架</h4><p>比方。Rails 这种框架。会自己主动加入索引。Drupal 这种框架会自己主动拆分表结构。<br>会在你开发的初期指明正确的方向。所以，经验不太丰富的人一開始就追求从 0 開始构建，实际是不好的做法。</p><hr><h2 id="7-分析查询日志和慢查询日志"><a href="#7-分析查询日志和慢查询日志" class="headerlink" title="7. 分析查询日志和慢查询日志"></a>7. 分析查询日志和慢查询日志</h2><p>记录全部查询。这在用 ORM 系统或者生成查询语句的系统非常实用。<br>log=/var/log/mysql.log<br>注意不要在生产环境用。否则会占满你的磁盘空间。<br>记录运行时间超过 1 秒的查询：<br>long_query_time=1<br>log-slow-queries=/var/log/mysql/log-slow-queries.log</p><hr><h2 id="8-激进的方法。使用内存磁盘"><a href="#8-激进的方法。使用内存磁盘" class="headerlink" title="8. 激进的方法。使用内存磁盘"></a>8. 激进的方法。使用内存磁盘</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">如今基础设施的可靠性已经非常高了，比方 EC2 差点儿不用操心server硬件当机。并且内存实在是廉价。非常easy买到几十G内存的server，能够用内存磁盘。定期备份到磁盘。</span><br><span class="line">将 MYSQL 文件夹迁移到 4G 的内存磁盘</span><br><span class="line">mkdir -p /mnt/ramdisk</span><br><span class="line">sudo mount -t tmpfs -o size=4000M tmpfs /mnt/ramdisk/</span><br><span class="line">mv /var/lib/mysql /mnt/ramdisk/mysql</span><br><span class="line">ln -s /tmp/ramdisk/mysql /var/lib/mysql</span><br><span class="line">chown mysql:mysql mysql</span><br></pre></td></tr></table></figure><hr><h2 id="9-用-NOSQL-的方式使用-MYSQL"><a href="#9-用-NOSQL-的方式使用-MYSQL" class="headerlink" title="9. 用 NOSQL 的方式使用 MYSQL"></a>9. 用 NOSQL 的方式使用 MYSQL</h2><p>B-TREE 仍然是最高效的索引之中的一个，全部 MYSQL 仍然不会过时。<br>用 HandlerSocket 跳过 MYSQL 的 SQL 解析层。MYSQL 就真正变成了 NOSQL。</p><hr><h2 id="10-其它"><a href="#10-其它" class="headerlink" title="10. 其它"></a>10. 其它</h2><p>单条查询最后添加 LIMIT 1，停止全表扫描。<br>将非”索引”数据分离，比方将大篇文章分离存储，不影响其它自己主动查询。<br>不用 MYSQL 内置的函数。由于内置函数不会建立查询缓存。<br>PHP 的建立连接速度很快，全部能够不用连接池。否则可能会造成超过连接数。当然不用连接池 PHP 程序也可能将连接数占满比方用了 @ignore_user_abort(TRUE);<br>使用 IP 而不是域名做数据库路径。避免 DNS 解析问题</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如下内容记录于某外企DBA，2018-04-08。&lt;/p&gt;
+&lt;p&gt;MYSQL 应该是最流行了 WEB 后端数据库。WEB 开发语言近期发展非常快，PHP， Ruby, Python, Java 各有特点，尽管 NOSQL 近期越來越多的被提到，可是相信大部分架构师还是会选择 MYSQL 来做数据存储。&lt;br&gt;MYSQL 如此方便和稳定。以至于我们在开发 WEB 程序的时候非常少想到它。即使想到优化也是程序级别的，比方。不要写过于消耗资源的 SQL 语句。可是除此之外，在整个系统上仍然有非常多能够优化的地方。&lt;/p&gt;
+&lt;h2 id=&quot;1-选择合适的存储引擎-InnoDB&quot;&gt;&lt;a href=&quot;#1-选择合适的存储引擎-InnoDB&quot; class=&quot;headerlink&quot; title=&quot;1. 选择合适的存储引擎: InnoDB&quot;&gt;&lt;/a&gt;1. 选择合适的存储引擎: InnoDB&lt;/h2&gt;&lt;p&gt;除非你的数据表使用来做仅仅读或者全文检索 (相信如今提到全文检索，没人会用 MYSQL 了)。你应该默认选择 InnoDB 。&lt;br&gt;你自己在測试的时候可能会发现 MyISAM 比 InnoDB 速度快。这是由于： MyISAM 仅仅缓存索引，而 InnoDB 缓存数据和索引，MyISAM 不支持事务。可是 假设你使用 innodb_flush_log_at_trx_commit = 2 能够获得接近的读取性能 (相差百倍) 。&lt;/p&gt;
+&lt;h3 id=&quot;1-1-怎样将现有的-MyISAM-数据库转换为-InnoDB&quot;&gt;&lt;a href=&quot;#1-1-怎样将现有的-MyISAM-数据库转换为-InnoDB&quot; class=&quot;headerlink&quot; title=&quot;1.1 怎样将现有的 MyISAM 数据库转换为 InnoDB:&quot;&gt;&lt;/a&gt;1.1 怎样将现有的 MyISAM 数据库转换为 InnoDB:&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql -u [USER_NAME] -p -e &amp;quot;SHOW TABLES IN [DATABASE_NAME];&amp;quot; | tail -n +2 | xargs -I &amp;apos;&amp;#123;&amp;#125;&amp;apos; echo &amp;quot;ALTER TABLE &amp;#123;&amp;#125; ENGINE=InnoDB;&amp;quot; &amp;gt; alter_table.sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;perl -p -i -e &amp;apos;s/(search_[a-z_]+ ENGINE=)InnoDB//1MyISAM/g&amp;apos; alter_table.sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql -u [USER_NAME] -p [DATABASE_NAME] &amp;lt; alter_table.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;1-2-为每一个表分别创建-InnoDB-FILE：innodb-file-per-table-1&quot;&gt;&lt;a href=&quot;#1-2-为每一个表分别创建-InnoDB-FILE：innodb-file-per-table-1&quot; class=&quot;headerlink&quot; title=&quot;1.2 为每一个表分别创建 InnoDB FILE：innodb_file_per_table=1&quot;&gt;&lt;/a&gt;1.2 为每一个表分别创建 InnoDB FILE：innodb_file_per_table=1&lt;/h3&gt;&lt;p&gt;这样能够保证 ibdata1 文件不会过大。失去控制。尤其是在运行 mysqlcheck -o –all-databases 的时候。&lt;/p&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Apache RabbitMQ</title>
+    <link href="http://yanzhenyidai.com/2019/08/15/Apache-RabbitMQ/"/>
+    <id>http://yanzhenyidai.com/2019/08/15/Apache-RabbitMQ/</id>
+    <published>2019-08-15T15:10:15.000Z</published>
+    <updated>2019-08-15T15:10:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Rabbit MQ</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Rabbit MQ&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security Oauth2</title>
+    <link href="http://yanzhenyidai.com/2019/08/15/Spring-Security-Oatuh2/"/>
+    <id>http://yanzhenyidai.com/2019/08/15/Spring-Security-Oatuh2/</id>
+    <published>2019-08-15T14:39:50.000Z</published>
+    <updated>2019-09-01T06:44:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在研究Oauth2，打算将它应用到实际项目当中，主要是做接口鉴权这一块。</p><p>通过源码以及借鉴其他工程，有了如下了解：</p><p>Oauth2源码地址：<a href="https://github.com/spring-projects/spring-security-oauth" target="_blank" rel="noopener">https://github.com/spring-projects/spring-security-oauth</a><br>本工程的源码地址：<a href="https://github.com/yanzhenyidai/oauth-example.git" target="_blank" rel="noopener">https://github.com/yanzhenyidai/oauth-example.git</a></p><a id="more"></a><p>Oauth2在简单应用中我们大致只需要关心如下三个类，继承重写当中的方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AuthorizationServerConfigurerAdapter </span><br><span class="line">ResourceServerConfigurerAdapter </span><br><span class="line">WebSecurityConfigurerAdapter</span><br></pre></td></tr></table></figure><ul><li><p>AuthorizationServerConfigurerAdapter</p><p>这个在Oauth中是做授权相关的内容，以及负责存储token和token的时间范围处理。</p><p>在这个类当中，我们只需要重写里面的两个configure方法，一个是客户端连接数据源信息，一个是进行授权认证的操作。</p><p>代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line"> public void configure(ClientDetailsServiceConfigurer clients) throws Exception &#123;</span><br><span class="line">     clients.withClientDetails(clientDetails());</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> @Override</span><br><span class="line"> public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception &#123;</span><br><span class="line">     endpoints.tokenStore(redisTokenStore())</span><br><span class="line">             .userDetailsService(userDetailsService)</span><br><span class="line">             .authenticationManager(authenticationManager);</span><br><span class="line">     endpoints.tokenServices(defaultTokenServices());</span><br><span class="line">     endpoints.exceptionTranslator(webResponseExceptionTranslator());//认证异常翻译</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li><li><p>ResourceServerConfigurerAdapter</p></li></ul><p>资源服务，可以看作在微服务体系中的每一个服务，一个服务相当于一个资源，个人理解下来每个资源都需要实现这一个类，实现的机制下来理解为在</p><p>类中写入tokenStore，指向redis服务器，由Oauth内部连接redis来判断token是否在有效期内。如果不做这一个</p><p>的实现，也可以在全局请求的时候进行拦截，获取到token，调用/oauth/check_token这个接口来进行鉴权的操</p><p>作，下面贴上在同一个应用内的代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">   public void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">       http.</span><br><span class="line">               csrf().disable()</span><br><span class="line">               .authorizeRequests().anyRequest().authenticated()</span><br><span class="line">               .and()</span><br><span class="line">               .httpBasic();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   @Override</span><br><span class="line">   public void configure(ResourceServerSecurityConfigurer resources) throws Exception &#123;</span><br><span class="line">       super.configure(resources);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><ul><li>WebSecurityConfigurerAdapter</li></ul><p>这个在Oauth中的意义就是进行请求拦截和过滤，以及用户是否可用的判断逻辑了，相当于认证的逻辑，代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">    protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;</span><br><span class="line">        auth.userDetailsService(userDetailsService)</span><br><span class="line">                .passwordEncoder(passwordEncoder());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">        http</span><br><span class="line">                .authorizeRequests()</span><br><span class="line">                .anyRequest().authenticated()</span><br><span class="line">                .antMatchers(&quot;/oauth/**&quot;).permitAll()</span><br><span class="line">                .and()</span><br><span class="line">                .csrf().disable();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void configure(WebSecurity web) throws Exception &#123;</span><br><span class="line">        web.ignoring().antMatchers(&quot;/css/**&quot;, &quot;/js/**&quot;, &quot;/plugins/**&quot;, &quot;/favicon.ico&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在研究Oauth2，打算将它应用到实际项目当中，主要是做接口鉴权这一块。&lt;/p&gt;
+&lt;p&gt;通过源码以及借鉴其他工程，有了如下了解：&lt;/p&gt;
+&lt;p&gt;Oauth2源码地址：&lt;a href=&quot;https://github.com/spring-projects/spring-security-oauth&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/spring-projects/spring-security-oauth&lt;/a&gt;&lt;br&gt;本工程的源码地址：&lt;a href=&quot;https://github.com/yanzhenyidai/oauth-example.git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/yanzhenyidai/oauth-example.git&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>架构初步选型</title>
+    <link href="http://yanzhenyidai.com/2019/08/13/%E6%9E%B6%E6%9E%84%E5%88%9D%E6%AD%A5%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://yanzhenyidai.com/2019/08/13/架构初步模型/</id>
+    <published>2019-08-13T15:10:46.000Z</published>
+    <updated>2019-08-25T12:10:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Insect<ul><li>SpringCloud/SpringCloud Alibaba<ul><li>OAuth2</li><li>Redis</li><li>RabbitMQ<a id="more"></a></li><li>Feign（Maybe）</li><li>Sentinel（Maybe）</li><li>Dubbo</li><li>Nacos</li></ul></li><li>Mybatils<ul><li>MyBatils-Plus</li></ul></li><li>MySQL<!-- more --></li></ul></li></ul><p>前端暂未选型，纯后端开发</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;Insect&lt;ul&gt;
+&lt;li&gt;SpringCloud/SpringCloud Alibaba&lt;ul&gt;
+&lt;li&gt;OAuth2&lt;/li&gt;
+&lt;li&gt;Redis&lt;/li&gt;
+&lt;li&gt;RabbitMQ
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>阿里云Maven仓库地址</title>
+    <link href="http://yanzhenyidai.com/2019/07/31/AliYun-Maven%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80/"/>
+    <id>http://yanzhenyidai.com/2019/07/31/AliYun-Maven仓库地址/</id>
+    <published>2019-07-31T03:20:03.000Z</published>
+    <updated>2019-08-16T03:07:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一下阿里云的Maven仓库地址，只需要复制如下代码到setting.xml中的mirror块中。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">   &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">   &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">   &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">   &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;       </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;记录一下阿里云的Maven仓库地址，只需要复制如下代码到setting.xml中的mirror块中。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;li
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>第一篇文章</title>
+    <link href="http://yanzhenyidai.com/2019/06/24/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yanzhenyidai.com/2019/06/24/第一篇博客/</id>
+    <published>2019-06-23T18:07:00.000Z</published>
+    <updated>2019-06-24T01:00:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是2019-06-23，第一篇文章 By Mr.Frank</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天是2019-06-23，第一篇文章 By Mr.Frank&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
