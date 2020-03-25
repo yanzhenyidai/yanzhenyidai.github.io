@@ -1,6 +1,7 @@
 - 服务器
     
     - [Cloudflare](network/cloudflare.md)
+    - [Nginx](network/nginx.md)
 
 - Http
 
@@ -13,6 +14,10 @@
 - Git
 
     - [Git高效使用](git/gituse.md)
+    
+- 搭建微服务框架
+
+    - [微服务架构选型](squid/1.md)
     
 - 面试
 

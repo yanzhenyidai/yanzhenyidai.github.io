@@ -2,7 +2,7 @@
 
 <div align = "center">
 
-> [Blog](https://yanzhenyidai.com)
+> [Blog](https://blog.yanzhenyidai.com)
 
 > [GitHub](https://github.com/yanzhenyidai)
 
