@@ -5,5 +5,5 @@
 
 
 [GitHub](https://github.com/yanzhenyidai)
-[Get Started](#introduction)
+[Get Started](#contact)
 
