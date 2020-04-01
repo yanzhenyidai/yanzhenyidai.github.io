@@ -26,7 +26,7 @@
 
 > 加载顺序，淡黄色为注解，淡绿色为类。
 
- <img src="https://i.loli.net/2020/04/01/VMje8C3rdg5NoRL.png" width="50%"/>
+ <img src="https://i.loli.net/2020/04/01/VMje8C3rdg5NoRL.png" width="30%"/>
  
  按照图上的顺序，并且跟随SpringBoot的源码来进行断点跟踪，其实不难发现，SpringBoot加载顺序的逻辑意义：
  
