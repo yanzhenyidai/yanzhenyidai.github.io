@@ -10,7 +10,7 @@
  
  <img src="https://i.loli.net/2020/03/25/hWlxot9pu8wnPGc.png" width="60%"/>
 
- 选择免费Free，土豪随意，然后Cloudflare会匹配出当前域名和域名的二级域名，Confirm后，会出现一个DNS的地址。
+ 选择免费Free，当然土豪随意，然后Cloudflare会匹配出当前域名和域名的二级域名，Confirm后，会出现一个DNS的地址。
  
  这个时候需要到域名注册商，比如阿里云，百度云下将域名的DNS更换成Cloudflare提供的DNS地址。
  
