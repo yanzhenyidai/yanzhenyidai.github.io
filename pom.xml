@@ -14,6 +14,13 @@
         <version>2.0.9.RELEASE</version>
     </parent>
 
+    <properties>
+        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-openfeign.version>2.2.0.RELEASE</spring-cloud-openfeign.version>
+        <spring-cloud.version>Finchley.SR2</spring-cloud.version>
+        <druid-starter.version>1.1.21</druid-starter.version>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -22,13 +29,13 @@
                 <version>${druid-starter.version}</version>
             </dependency>
 
-            <!--<dependency>-->
-                <!--<groupId>com.alibaba.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-                <!--<version>${spring-cloud-alibaba.version}</version>-->
-                <!--<type>pom</type>-->
-                <!--<scope>import</scope>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
