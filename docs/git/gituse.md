@@ -4,7 +4,7 @@
 > [原文链接](https://medium.freecodecamp.org/how-to-use-git-efficiently-54320a236369)
 > [译文链接](https://www.cnblogs.com/crossoverJie/p/9602180.html)
 
-<img src="https://i.loli.net/2020/03/11/WRVMJki2sf9pErz.jpg" width="60%"/>
+ ![1.jpg](https://i.loli.net/2020/03/11/WRVMJki2sf9pErz.jpg)
 
 > 代码昨天还是运行好好的今天就不行了。
 
@@ -24,7 +24,7 @@
 
 这里我将介绍一种工作流，它在一个多人大型项目中将非常有用。
 
-<img src="https://i.loli.net/2020/03/11/GbUrmMiLqsPZDNK.jpg" width="60%"/>
+ ![2.jpg](https://i.loli.net/2020/03/11/GbUrmMiLqsPZDNK.jpg)
 
 
 # 前言
@@ -72,11 +72,11 @@
 
 Alice 能够按照如下 GitHub 方式提交 `pull request`。
 
-<img src="https://i.loli.net/2020/03/11/uDSwPQZI85bdoC4.jpg" width="60%"/>
+ ![3.jpg](https://i.loli.net/2020/03/11/uDSwPQZI85bdoC4.jpg)
 
 在分支名字的旁边有一个 “New pull request” 按钮，点击之后将会显示如下界面：
 
-<img src="https://i.loli.net/2020/03/11/CngXvJLoWzSZM4x.jpg" width="60%"/>
+ ![4.jpg](https://i.loli.net/2020/03/11/CngXvJLoWzSZM4x.jpg)
 
 - 比较分支是 Alice 的功能分支 `feature/login`。
 - base 分支则应该是发布分支 `release/fb`。
