@@ -21,7 +21,7 @@
 
 ## 使用Dubbo
 
- Dubbo使用起来也比较方便（当然是没有Springboot方便啦:wink:），版本可以使用Spring，SpringBoot，SpringCloud-Alibaba。
+ Dubbo使用起来也比较方便（当然是没有Springboot方便啦），版本可以使用Spring，SpringBoot，SpringCloud-Alibaba。
  
  Dubbo官方是推荐的Spring，这种方式在个人看来是配置xml文件太多，当然方便的地方也有很多很多，举例来说直接改xml文件比起改代码靠谱很多。
  
