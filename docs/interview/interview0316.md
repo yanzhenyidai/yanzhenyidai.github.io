@@ -1,7 +1,7 @@
 
 # 某互联网保险公司面试
 
-<img src="https://i.loli.net/2020/03/11/WRVMJki2sf9pErz.jpg" width="60%"/>
+ ![interview.jpg](https://i.loli.net/2020/04/07/i9sJYTFoABqI1m7.jpg)
 
 > 金三银四在疫情下没能诞生，还好有一家互联网保险公司有邀请面试，于是发生了下面的故事：
 

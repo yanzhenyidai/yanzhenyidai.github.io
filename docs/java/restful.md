@@ -1,7 +1,7 @@
 
 # RESTFUL
 
-<img src="https://i.loli.net/2020/03/21/yeBcjPp1Mg2zYkI.jpg" width="30%"/>
+ ![rest.jpg](https://i.loli.net/2020/03/21/yeBcjPp1Mg2zYkI.jpg)
 
 > RESTFUL已经运用好几年了，在实际项目中大部分也都有用到了这项技术，下面来讲讲自己的理解
 

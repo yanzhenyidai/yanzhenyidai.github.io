@@ -15,7 +15,7 @@
  
 > 一张参加Dubbo线下活动的照片
 
- <img src="https://i.loli.net/2020/03/25/iAsjmW5t4HQc1rV.jpg" width="80%"/>
+ ![springcloud.jpg](https://i.loli.net/2020/03/25/iAsjmW5t4HQc1rV.jpg)
  
  可以看到阿里的同学为了推广自己的Dubbo也是花了不少功夫，在现场晒出这张图时，底下真的是嘘声一片。 :joy:
  
@@ -32,7 +32,7 @@
  
  大致效果图如下（画的有点水 :joy: ）
  
- <img src="https://i.loli.net/2020/03/29/QrUCdf4V5gTuzsx.png" width="80%"/>
+ ![image.png](https://i.loli.net/2020/03/29/QrUCdf4V5gTuzsx.png)
 
  为什么使用[Nacos](https://nacos.io/zh-cn/docs/what-is-nacos.html)，由于Eureka停止更新，Zookeeper由于没有Config配置，用了一段时间Nacos，发现很不错，只不过监控台功能有些不够强大，顺便提一句的是，现在Dubbo新版本的控制台也不如老版本来的直观了。
  

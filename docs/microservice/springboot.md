@@ -1,7 +1,7 @@
 
 # SpringBoot
 
- <img src="https://i.loli.net/2020/04/01/GORdxJWf7q1oTIe.png" width=""/>
+ ![springboot.png](https://i.loli.net/2020/04/01/GORdxJWf7q1oTIe.png)
 
 > SpringBoot作为近几年很火的微服务框架，只需要简单的几个依赖，少量的配置，就可以使用它快速搭建一个轻量级的微服务，优点是简单、快速、大道至简，缺点是真的太单一，不适于项目中的模块开发。<br/>
  如果是单一的应用，比如做接口转发、项目启动，SpringBoot很合适这些场景，如果是项目开发，建议还是使用[SpringCloud](springcloud.md)。<br/>
@@ -26,7 +26,7 @@
 
 > 加载顺序，淡黄色为注解，淡绿色为类。
 
- <img src="https://i.loli.net/2020/04/01/VMje8C3rdg5NoRL.png" width="30%"/>
+ ![SpringBoot 加载.jpg](https://i.loli.net/2020/04/07/bWFlJAkx3EgZvz6.png)
  
  按照图上的顺序，并且跟随SpringBoot的源码来进行断点跟踪，其实不难发现，SpringBoot加载顺序的逻辑意义：
  
@@ -85,7 +85,7 @@
   
   在 `AutoConfigurationImportSelector` 中，获取到的class：
   
-   <img src="https://i.loli.net/2020/04/01/h6bayYjLAtgXHU9.png" width="80%"/>
+  ![configuration.png](https://i.loli.net/2020/04/01/h6bayYjLAtgXHU9.png)
    
   后续就在 `ConfigurationClassPostProcessor` 中 `this.reader.loadBeanDefinitions(configClasses);` 进行实例化；
  

@@ -6,7 +6,7 @@
 ---
 ## 了解Nginx
 
- <img src="https://i.loli.net/2020/03/25/PmQ9AcM4LJOupqH.png" width="60%"/>
+ ![nginx.png](https://i.loli.net/2020/04/07/t2hgMHnsDdfVbcm.png)
  
  上面图可以直观的看出Nginx的用处，可以将请求转发至Web服务器和文件服务器，当然还可以转发其他的内容，比如Rest接口，TCP端口等等。
  

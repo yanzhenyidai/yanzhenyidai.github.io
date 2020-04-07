@@ -1,7 +1,7 @@
 
 # Dubbo
 
- <img src="https://i.loli.net/2020/04/05/jvbg4yfUTEst8SJ.png" width="40%"/>
+ ![dubbo.jpg](https://i.loli.net/2020/04/05/jvbg4yfUTEst8SJ.png)
 
 > 假期第二天，把Dubbo的一些理解整理了一下，对于大家广义上的Dubbo是一款分布式，高可用，负载均衡的远程调用框架，而对于做过的项目中狭义上来说，以上功能没用到过一个，属于完完全全的单机部署，所以以下只能算是个人理解，毕竟没有在生产上实际运用到分布式。
 
@@ -13,7 +13,7 @@
  
  而Dubbo的RPC流程，这里贴一张官方的调用流程图。
  
-  <img src="https://i.loli.net/2020/04/05/jmN2ktaL8fPOzdx.png" width="70%"/>
+ ![architecture.png](https://i.loli.net/2020/04/05/jmN2ktaL8fPOzdx.png)
   
  上图基本可以看出Dubbo的调用流程，不过第5点 `count Monitor` 这一块，应该是在最近的Dubbo2.7.x版本增加的，之前的2.5.x版本没有监控的这块逻辑。 
 
