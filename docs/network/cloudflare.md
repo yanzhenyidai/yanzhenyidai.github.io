@@ -8,7 +8,7 @@
 
  登入[Cloudflare](https://www.cloudflare.com)网站，点击Add Site按钮，输入自己的网站域名，出现下面界面时
  
- ![image.png](https://i.loli.net/2020/03/25/hWlxot9pu8wnPGc.png) {:width="60%"}
+ <img src="https://i.loli.net/2020/03/25/hWlxot9pu8wnPGc.png" width="60%"/>
 
  选择免费Free，当然土豪随意，然后Cloudflare会匹配出当前域名和域名的二级域名，Confirm后，会出现一个DNS的地址。
  
@@ -23,7 +23,7 @@
  
  设置好了DNS后，可以进入Cloudflare Dashboard，选择SSL/TLS
 
-  ![image.png](https://i.loli.net/2020/03/25/h6IoMS7xRwjDnle.png) {:width="60%"}
+ <img src="https://i.loli.net/2020/03/25/rXS4mKOuwNM1UZs.png" width="60%"/>
 
  可以按照上面设置，选择Full(strict)，双向验证。
  
