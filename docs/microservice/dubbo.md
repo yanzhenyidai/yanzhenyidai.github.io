@@ -21,7 +21,7 @@
 
 ## 使用Dubbo
 
- Dubbo使用起来也比较方便（当然是没有Springboot方便啦），版本可以使用Spring，SpringBoot，SpringCloud-Alibaba。
+ Dubbo使用起来也比较方便，版本可以使用Spring，SpringBoot，SpringCloud-Alibaba。
  
  Dubbo官方是推荐的Spring，这种方式在个人看来是配置xml文件太多，当然方便的地方也有很多很多，举例来说直接改xml文件比起改代码靠谱很多。
  
@@ -44,9 +44,13 @@
  Provider基本上是以接口的形式进行注册到Zookeeper，如果看过Zookeeper下的节点的同学都会发现，注册路径 `dubbo://com.yanzhenyidai.squid.example.SquidService` 这样的形式，首先 `dubbo` 是协议名，其他的则是java
  项目中的包路径。
  
+ ![dubbo-provider.png](https://i.loli.net/2020/04/08/6aztVlBSekO5hTG.png)
+ 
+ 在Zookeeper的bin目录下执行 `sh zkCli.sh` 进入Zookeeper的本地客户端中，可以直观的看出dubbo注册节点。
+ 
 ### Consumer
 
- Consumer和Provider设计类似，调用也是通过Zookeeper注册的节点来进行。
+ Consumer和Provider设计类似，调用底层是通过Netty实现，首先通过获取Zookeeper注册的节点信息，获取开放的端口，直接请求发送数据来进行。
  
 ### 其他功能
 
