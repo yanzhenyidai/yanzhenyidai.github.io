@@ -30,7 +30,7 @@
 
  使用起来真的挺简单的，很快容易上手。
  
- 首先访问 `https://github.com/open-dingtalk/pierced` ，选择适合自己的平台，并且将文件下载到本地的用户文件夹中。
+ 首先访问 [https://github.com/open-dingtalk/pierced](https://github.com/open-dingtalk/pierced) ，选择适合自己的平台，并且将文件下载到本地的用户文件夹中。
  
  以Windows为例子，路径为 `C:\Users\Admin` 下，下载完成后，进入 `cmd`，运行如下命令。
  
