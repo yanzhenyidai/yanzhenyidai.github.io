@@ -1,7 +1,7 @@
 
 # 如何高效的使用 Git
 
-> [原文链接](https://medium.freecodecamp.org/how-to-use-git-efficiently-54320a236369)
+> [原文链接](https://medium.freecodecamp.org/how-to-use-git-efficiently-54320a236369) <br>
 > [译文链接](https://www.cnblogs.com/crossoverJie/p/9602180.html)
 
  ![1.jpg](https://i.loli.net/2020/03/11/WRVMJki2sf9pErz.jpg)
