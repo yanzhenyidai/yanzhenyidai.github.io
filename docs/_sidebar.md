@@ -27,6 +27,7 @@
     - [零、为什么有这个想法](squid/preface.md)
     - [一、结构和各个组件](squid/squid-1-project.md)
     - [二、SC服务注册与发现](squid/squid-2.1-sc-server.md)
+    - [三、读取Nacos的配置信息](squid/squid-2.2-sc-config.md)
     
 - 面试
 

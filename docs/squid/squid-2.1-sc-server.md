@@ -17,10 +17,6 @@
      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
  </dependency>
 
- <dependency>
-     <groupId>com.alibaba.cloud</groupId>
-     <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
- </dependency>
  ```
  
  完成对Nacos的依赖引入后，可以进行下一步的SpringCloud服务发布的操作，👇。
