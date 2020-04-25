@@ -28,6 +28,7 @@
     - [一、结构和各个组件](squid/squid-1-project.md)
     - [二、SC服务注册与发现](squid/squid-2.1-sc-server.md)
     - [三、读取Nacos的配置信息](squid/squid-2.2-sc-config.md)
+    - [四、集成OAuth2进行接口鉴权](squid/squid-3-oauth.md)
     
 - 面试
 
