@@ -30,6 +30,6 @@
     - [三、读取Nacos的配置信息](squid/squid-2.2-sc-config.md)
     - [四、集成OAuth2进行接口鉴权](squid/squid-3-oauth.md)
     
-- 面试
+- 成长之路
 
     - [互联网保险公司面试](interview/interview0316.md)
