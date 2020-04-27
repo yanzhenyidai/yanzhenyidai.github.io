@@ -109,6 +109,12 @@
     @Configuration
     public class AuthResourceConfig extends ResourceServerConfigurerAdapter {
     
+        @Autowired
+        RedisConnectionFactory redisConnectionFactory;
+    
+    //    @Autowired
+    //    DataSource dataSource;
+    
         @Override
         public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
             super.configure(resources);
@@ -122,10 +128,47 @@
                     .and()
                     .httpBasic();
         }
+    
+    //    @Bean
+    //    ResourceServerTokenServices resourceServerTokenServices() {
+    //        RemoteTokenServices tokenServices = new RemoteTokenServices();
+    //        tokenServices.setCheckTokenEndpointUrl("http://localhost:8081/oauth/check_token");
+    //        tokenServices.setAccessTokenConverter(accessTokenConverter());
+    //        return tokenServices;
+    //    }
+    
+        @Bean
+        public AccessTokenConverter accessTokenConverter() {
+            return new DefaultAccessTokenConverter();
+        }
+    
+        @Bean
+        RedisTokenStore redisTokenStore() {
+            return new RedisTokenStore(redisConnectionFactory);
+        }
+    
+    //    @Bean
+    //    ClientDetailsService clientDetailsService() {
+    //        return new JdbcClientDetailsService(dataSource);
+    //    }
+    
+        @Bean
+        @Primary
+        DefaultTokenServices defaultTokenServices() {
+            DefaultTokenServices tokenServices = new DefaultTokenServices();
+            tokenServices.setTokenStore(redisTokenStore());
+    //        tokenServices.setSupportRefreshToken(true);
+    //        tokenServices.setClientDetailsService(clientDetailsService());
+    //        tokenServices.setAccessTokenValiditySeconds(60 * 60 * 12); // token有效期自定义设置，默认12小时
+    //        tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);//默认30天，这里修改
+            return tokenServices;
+        }
+    
     }
 ```
 
- AuthResourceConfig，作为资源授权模块来说，它更多的出现在业务模块工程中，做的是资源授权的操作，现在不做过多的解释，后续会在 `squid-example-provider` 中实现。
+ AuthResourceConfig，作为资源授权模块来说，它更多的出现在业务模块工程中，做的是资源授权的操作，每一个微服务模块都会被当成一个资源来定义，而请求资源，则需要每次校验 `access_token`
+ ，这个类可以出现在任意一个微服务工程中。
  
  - AuthServerConfig
  
