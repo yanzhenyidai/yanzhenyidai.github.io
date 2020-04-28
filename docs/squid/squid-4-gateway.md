@@ -150,6 +150,6 @@ spring:
  
  > [Spring-Cloud-Gateway 2.2.2.RELEASE(WIKI)](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.2.RELEASE/reference/html/) <br>
  > [Spring-Cloud-Gateway (GITHUB)](https://github.com/spring-cloud/spring-cloud-gateway) <br>
- > [Spring-Cloud-Gateway (Spring.io)](https://spring.io/projects/spring-cloud-gateway#overview)
+ > [Spring-Cloud-Gateway (Spring.io)](https://spring.io/projects/spring-cloud-gateway#overview) <br>
  > [BAELDUNG.com (GateWay)](https://www.baeldung.com/spring-cloud-gateway)
 
