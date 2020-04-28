@@ -388,3 +388,4 @@ public class OAuthApplication {
  > [OAuth-example](https://github.com/yanzhenyidai/oauth-example.git) <br>
  > [Spring-Security-OAuth](https://github.com/spring-projects/spring-security-oauth) <br>
  > [OAuth 2.0 的一个简单解释](http://www.ruanyifeng.com/blog/2019/04/oauth_design.html)
+ > [BAELDUNG.com (OAUTH)](https://www.baeldung.com/spring-security-oauth-principal-authorities-extractor)

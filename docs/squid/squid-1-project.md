@@ -10,9 +10,9 @@
 > SQuid是基于Spring，SpringBoot，使用了SpringCloud下的组件进行构建，目的是想搭建一套可以快速开发部署，并且很好上手的一套微服务框架。
 
 ### 组件
-- [x] [SpringCloud-Feign]()
+- [x] [Spring-Cloud-Feign]()
 - [x] [Spring-Security-OAuth](https://blog.yanzhenyidai.com/2019/08/15/Spring-Security-Oatuh2/)
-- [x] Spring-Gateway
+- [x] Spring-Cloud-Gateway
 - [x] Spring-Cloud-Alibaba
 
 ### 中间件
@@ -51,7 +51,7 @@
  
 ---
 
-## 本次项目依赖
+## 项目依赖
 
  > 本次项目是在 `spring-boot: 2.0.9.RELEASE` 下搭建，所需依赖文件如下：
  

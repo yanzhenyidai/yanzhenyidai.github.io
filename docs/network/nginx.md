@@ -137,6 +137,6 @@
 ---
  ## 总结
  
- Nginx开源后淘宝将Nginx进行了优化，项目名称[Tengine](http://tengine.taobao.org)，总而言之，Nginx真的是一款很棒的服务器，
+ Nginx开源后淘宝将Nginx进行了优化，项目名称[Tengine](http://tengine.taobao.org)，总而言之，Nginx真的是一款很棒的服务器。
 
 ---
