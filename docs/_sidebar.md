@@ -28,6 +28,7 @@
     - [二、SC服务注册与发现](squid/squid-2.1-sc-server.md)
     - [三、读取Nacos的配置信息](squid/squid-2.2-sc-config.md)
     - [四、集成OAuth2进行接口鉴权](squid/squid-3-oauth.md)
+    - [五、服务网关处理](squid/squid-4-gateway.md)
     
 - 成长之路
 
