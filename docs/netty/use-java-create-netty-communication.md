@@ -291,7 +291,7 @@ public class NettyServer {
     
     以上四个常量作为TCP连接中的属性。
     
- -  ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
+ - ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     NettyServerHandler中出现的 `ChannelFutureListener.CLOSE` ，作为Server端主动关闭与Client端的通信，如果没有主动Close，那么NettyClient将会一直处于阻塞状态，得不到NettyServer的返回信息。
 
  > NettyClient
