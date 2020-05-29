@@ -41,13 +41,13 @@
  
  不过也可以先看看后面各个组件的集成的说明，送上链接：
  
- - [SC服务注册与发现]()
- - [读取Nacos的配置信息]()
- - [服务接口鉴权]()
- - [服务网关处理]()
- - [数据库持久层-SpringDataJpa]()
- - [数据库持久层-Mybatis-Plus]()
- - [服务熔断和跟踪-Sentinel]()
+ - [SC服务注册与发现](https://yanzhenyidai.com/#/squid/squid-2.1-sc-server)
+ - [读取Nacos的配置信息](https://yanzhenyidai.com/#/squid/squid-2.2-sc-config)
+ - [服务接口鉴权](https://yanzhenyidai.com/#/squid/squid-3-oauth)
+ - [服务网关处理](https://yanzhenyidai.com/#/squid/squid-4-gateway)
+ - [数据库持久层-SpringDataJpa](https://yanzhenyidai.com/#/squid/squid-5.1-jpa)
+ - [TODO：数据库持久层-Mybatis-Plus]()
+ - [TODO：服务熔断和跟踪-Sentinel]()
  
 ---
 
