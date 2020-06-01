@@ -48,7 +48,7 @@
  
  > Mysql5.7+
  
- MySQL用来记录OAuth的必要信息： `client_id、clien_secret、grant、scope`，SQL脚本地址：[oauth2.sql](oauth2.sql)
+ MySQL用来记录OAuth的必要信息： `client_id、clien_secret、grant、scope`，SQL脚本地址：[oauth2.sql](https://yanzhenyidai.com/file/oauth2.sql)
  
  > Redis
  
@@ -56,7 +56,7 @@
  
  > 新建工程
  
- 首先我们先在原有的工程下新建一个 `squid-oatuh2` 的工程，引入下列maven依赖：
+ 首先我们先在原有的工程下新建一个 `squid-oauth-2` 的工程，引入下列maven依赖：
  
  ```xml
     <dependency>
