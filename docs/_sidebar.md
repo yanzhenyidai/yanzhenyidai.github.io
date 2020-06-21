@@ -36,6 +36,7 @@
     - [四、集成OAuth2进行接口鉴权](squid/squid-3-oauth.md)
     - [五、服务网关处理](squid/squid-4-gateway.md)
     - [六、加入数据库持久层-SpringDataJPA](squid/squid-5.1-jpa.md)
+    - [七、Swagger的集成](squid/squid-7-swagger.md)
     
 - 成长之路
 
