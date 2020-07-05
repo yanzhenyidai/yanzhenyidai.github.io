@@ -1,3 +1,8 @@
+    
+- 微信小程序
+
+    - [开发自己的小程序](miniprogram/create-myself's-wechatminiprogram.md)
+
 - Netty
     
     - [实现Netty进行通信](netty/use-java-create-netty-communication.md)
@@ -30,10 +35,6 @@
  
     - [Dubbo](microservice/dubbo.md)
     - [SpringBoot](microservice/springboot.md)
-    
-- 微信小程序开发
-
-    - [开发自己的小程序](miniprogram/create-myself's-wechatminiprogram.md)
     
 - SpringCloud搭建微服务框架
 
