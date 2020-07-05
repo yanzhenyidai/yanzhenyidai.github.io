@@ -7,6 +7,10 @@
     
     - [Cloudflare](network/cloudflare.md)
     - [Nginx](network/nginx.md)
+    
+- 线程
+
+    - [一次使用线程的经过](thread/easy-use-java's-thread.md)
 
 - Http
 
@@ -26,6 +30,10 @@
  
     - [Dubbo](microservice/dubbo.md)
     - [SpringBoot](microservice/springboot.md)
+    
+- 微信小程序开发
+
+    - [开发自己的小程序](miniprogram/create-myself's-wechatminiprogram.md)
     
 - SpringCloud搭建微服务框架
 
