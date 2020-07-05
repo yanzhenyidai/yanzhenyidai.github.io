@@ -76,7 +76,7 @@ public static void main(String[] args) throws InterruptedException, ExecutionExc
  
 ### **补充，Executor的成员信息**
 
- > 使用了Executor框架，就需要了解ThreadPoolExecutor的三个主要实现方法：
+> 使用了Executor框架，就需要了解ThreadPoolExecutor的三个主要实现方法：
  
  - newFixedThreadPool
  创建固定的线程，多个，一直等待前一个线程执行才执行后一个线程。
@@ -87,15 +87,15 @@ public static void main(String[] args) throws InterruptedException, ExecutionExc
  - newCachedThreadPool
  无限制线程数量。
  
- > ScheduledThreadPoolExecutor
+> ScheduledThreadPoolExecutor
  
  ScheduledThreadPoolExecutor 主要用于线程内定时执行的逻辑出现，这个目前自己用到比较少，可以看下[Java中调度线程池ScheduledThreadPoolExecutor原理探究](https://ifeve.com/33981-2/)
  
- > Future 
+> Future 
  
  主要是用来表示线程异步计算后的结果，以 `Future<V>` 的形式出现。
  
- > Runnable 和 Callable
+> Runnable 和 Callable
  
  上面说过，Runnable不会返回执行结果，而Callable可以返回执行结果。
  
