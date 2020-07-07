@@ -11,7 +11,7 @@
 
 > [frank-tan@outlook.com](mailto:frank-tan@outlook.com)
 
-> [EVERYBODY UP（严阵以待）👇](#EVERYBODYUP)
+> [严阵以待 🤪](#EVERYBODYUP)
 
 <video id="EVERYBODYUP" width="560" height="315" frameborder="0" controls="" preload="none" poster="https://yanzhenyidai.com/file/ytb_everybodyup.png" allowfullscreen>
     <source id="mp4" src="https://yanzhenyidai.com/file/EVERYBODY_UP__Roll_Call.mp4" type="video/mp4">
