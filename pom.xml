@@ -124,6 +124,13 @@
             <version>3.15</version>
         </dependency>
 
+        <!--Guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>

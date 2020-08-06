@@ -24,7 +24,8 @@
     - [OkHttp](java/okhttp.md)
 
 - 数据库
-
+    
+    - [排查Mysql突然变慢的一次过程](db/mysql-cpu-hight.md)
     - [Mysql的优化](db/mysql_20200311.md)
 
 - Git
