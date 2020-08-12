@@ -28,9 +28,10 @@
     - [排查Mysql突然变慢的一次过程](db/mysql-cpu-hight.md)
     - [Mysql的优化](db/mysql_20200311.md)
 
-- Git
+- 工具
 
     - [Git高效使用](git/gituse.md)
+    - [人生苦短，我用Python](python/the-first-python.md)
     
 - 微服务框架
  
