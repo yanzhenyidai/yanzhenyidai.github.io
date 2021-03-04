@@ -49,6 +49,7 @@
     - [六、加入数据库持久层-SpringDataJPA](squid/squid-5.1-jpa.md)
     - [七、Swagger的集成](squid/squid-7-swagger.md)
     
-- 成长之路
+- 面试记录
 
-    - [互联网保险公司面试](interview/interview0316.md)
+    - [2020年面试](interview/interview2020.md)
+    - [2021年面试](interview/interview2021.md)
