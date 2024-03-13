@@ -1,7 +1,7 @@
 - 2024 GO!
 
-  - [规划](2024/again_1.md)
-
+  - [重启2024🥇🥇🥇](2024/again_1.md)
+  
 - 微信小程序
 
     - [开发自己的小程序](miniprogram/create-myself's-wechatminiprogram.md)
