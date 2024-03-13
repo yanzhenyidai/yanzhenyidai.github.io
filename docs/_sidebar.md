@@ -1,3 +1,7 @@
+- 2024 GO!
+
+  - [规划](2024/again_1.md)
+
 - 微信小程序
 
     - [开发自己的小程序](miniprogram/create-myself's-wechatminiprogram.md)
@@ -38,10 +42,6 @@
     - [Dubbo](microservice/dubbo.md)
     - [SpringBoot](microservice/springboot.md)
   
-- 一些想法
-
-    - []
-
 - SpringCloud搭建微服务框架
 
     - [零、为什么有这个想法](squid/preface.md)

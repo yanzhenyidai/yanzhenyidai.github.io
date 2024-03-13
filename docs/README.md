@@ -7,8 +7,6 @@
 
 > [GitHub](https://github.com/yanzhenyidai)
 
-> [Twitter](https://twitter.com/Frank57368000)
-
 > [frank-tan@outlook.com](mailto:frank-tan@outlook.com)
 
 > [严阵以待 🤪](#EVERYBODYUP)
