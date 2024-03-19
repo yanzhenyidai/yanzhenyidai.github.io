@@ -52,3 +52,9 @@
 ## 时间安排
 
 此次由于只能在家里开发，想法是有时间就干，或者后续在家期间来进行，总之，此次不求别的，只为前几年未完成的一次心愿。加油💪。
+
+--- 
+
+## 其他
+
+1. [ ] [SpringBoot-Shrio-Jwt参考](https://gitee.com/fugongliudehua/shiroJWT.git)
