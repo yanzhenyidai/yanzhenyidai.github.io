@@ -56,3 +56,27 @@ hprof文件是Java虚拟机（JVM）生成的一种二进制文件，用于收�
 ## 结尾
 
 OOM是一个老生常谈的问题，解决方案也是有各种各样，我这里只记录了一下自己所遇到的情况。💻
+
+--- 
+
+## 后续补充
+
+ 由于一些项目是用Docker进行部署，且大多数Dockerfile引用的JDK为Openjdk，使用上面的jvm配置项生成的文件为.phd结尾的文件，所以这个就需要使用`IBM Heapanalyzer` 来进行分析排查。
+
+用法也很简单，首先需要下载一个IBM提供的jar包，[IBM Heapanalyzer百度云地址，提取码1qaz](https://pan.baidu.com/s/15cFeQlymp41782MjC8unYg)
+
+下载完成后，需要进行如下配置（保存为.bat文件）：
+
+```bat
+title ibm-heap-analyzer
+
+path=%PATH%;%D:\Program Files\Java\jdk1.8.0_311\bin
+
+D:
+
+cd D:\heapanalyzer
+
+java.exe -Xms1048M -Xmx8192M -jar ha457.jar
+```
+
+ 保存后直接运行.bat文件即可。
