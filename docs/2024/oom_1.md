@@ -79,4 +79,17 @@ cd D:\heapanalyzer
 java.exe -Xms1048M -Xmx8192M -jar ha457.jar
 ```
 
- 保存后直接运行.bat文件即可。
+ 保存后直接运行.bat文件即可，进入工具后，File->Open，选择对应的.phd文件，会生成如下信息：
+
+- Summary : 总计图
+- Analysis ： 分析图
+- Chart ： 图形展示
+- Leak Suspect ： 内存泄露疑点
+
+![ibm_heapanalyzer.png](https://s2.loli.net/2024/03/25/hjoiTAEBrxHsaOS.png)
+
+ 可以看到上图占用内存较多的是这个Model对象，只是生成的.phd文件没有像.hprof那样详细，定位不到某个具体发生内存溢出的代码片段。
+
+ 于是沿着这个Model对象进行排查，发现是由于生成了170多万个数据对象，占用过大的内存，一般来说这么多的数据量，很大可能是触发了全表查询，于是问了下业务，发现是历史数据没有删除。
+ 
+ 删除了170万的数据后，进行了两天的监控，内存溢出暂时没有出现了。
