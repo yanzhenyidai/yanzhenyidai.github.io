@@ -1,6 +1,7 @@
 - 一些想法(Some Ideas)
 
   - [系统总结和想法](ideas/bjdms.md)
+  - [影像系统思路重新梳理](ideas/edoc01.md)
 
 - 2024 GO!
 
