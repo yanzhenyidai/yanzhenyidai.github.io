@@ -2,7 +2,7 @@
 
   - [系统总结和想法](ideas/bjdms.md)
   - [影像系统思路重新梳理](ideas/edoc01.md)
-  - [设备管理系统]()
+  - [设备管理系统](ideas/equip_system.md)
 
 - 信创相关
 
