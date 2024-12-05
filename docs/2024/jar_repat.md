@@ -33,3 +33,5 @@ Caused by: java.lang.IllegalStateException: Unable to open nested entry 'BOOT-IN
 ![7z.png](https://s2.loli.net/2024/08/08/vBQomj1NyI5l6dK.png)
 
 这种时候将jar文件解压缩，然后将lib下的文件都进行替换，然后再压缩，选择压缩工具中的`仅压缩`，压缩之后的文件可以正常运行。
+
+比如说这里的漏洞是jackson-databind.jar包的漏洞，直接把里面jackson开头的jar包删除，复制高版本的jar包放到lib下，使用压缩工具压缩成.jar文件就行。
