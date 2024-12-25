@@ -4,6 +4,7 @@
   - [影像系统思路重新梳理](ideas/edoc01.md)
   - [设备管理系统](ideas/equip_system.md)
   - [进度管理模块/系统](ideas/schedule.md)
+  - [文档管理模块/系统](ideas/document.md)
 
 - 信创相关
 
